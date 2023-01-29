@@ -44,7 +44,10 @@ const testData = [{
 }];
 
 interface Props {
-	months: string[];
+	months: {
+		name: string;
+		remaining: number;
+	}[];
 }
 
 export default function Home({ months }: Props) {
@@ -52,7 +55,7 @@ export default function Home({ months }: Props) {
 	const closeModal = useCallback(() => setIsModalOpen(false), [setIsModalOpen]);
 	const toggleModal = useCallback(() => setIsModalOpen(val => !val), [setIsModalOpen]);
 
-	const [chosenMonth, setChosenMonth] = useState(months[0]);
+	const [chosenMonth, setChosenMonth] = useState(months[0].name);
 	const changeMonth = useCallback<(month: string) => void>(month => setChosenMonth(month), [setChosenMonth]);
 
 	return (
@@ -60,7 +63,7 @@ export default function Home({ months }: Props) {
 			<MonthSwitcherModal isOpen={isModalOpen} months={months} chosen={chosenMonth} onClose={closeModal} changeMonth={changeMonth}/>
 			<div className={styles["container"]}>
 				<div className={styles["navbar"]}>
-					<NavigationBar currentMonth={chosenMonth} toggleMonthModal={toggleModal}/>
+					<NavigationBar currentMonth={chosenMonth} monthIsNegative={(months.find(o => o.name === chosenMonth)?.remaining ?? 0) < 0} toggleMonthModal={toggleModal}/>
 				</div>
 				<div className={styles["description"]}>
 					<Description data={testData}/>
@@ -79,7 +82,8 @@ export default function Home({ months }: Props) {
 export function getServerSideProps() {
 	return {
 		props: {
-			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "December 2023"]
+			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "December 2023"].map(s => ({ name: s,
+				remaining: Math.random() * 1000 * (Math.random() > 0.5 ? 1 : -1) }))
 		}
 	};
 }

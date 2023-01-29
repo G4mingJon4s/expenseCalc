@@ -80,3 +80,11 @@
 .month-container:hover::before {
 	transform: scaleX(1);
 }
+
+.red {
+	color: #ff6666;
+}
+
+.green {
+	color: lightgreen;
+}

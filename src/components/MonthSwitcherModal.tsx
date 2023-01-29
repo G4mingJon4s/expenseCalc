@@ -10,7 +10,10 @@ export const mainFont = Oxygen_Mono({
 
 interface Props {
   isOpen: boolean;
-	months: string[];
+	months: {
+		name: string;
+		remaining: number;
+	}[];
 	chosen: string;
   onClose: () => void;
 	changeMonth: (month: string) => void;
@@ -32,7 +35,7 @@ export default function MonthSwitcherModal({ isOpen, months, chosen, onClose, ch
 				<div className={styles["grid-container"]}>
 					{months.map((month, index) => (
 						<div key={index} className={styles["grid-item"]}>
-							<MonthCard month={month} changeMonth={changeMonth} isChosen={chosen === month} />
+							<MonthCard month={month.name} changeMonth={changeMonth} isChosen={chosen === month.name} isNegative={month.remaining < 0}/>
 						</div>
 					))}
 				</div>
@@ -45,13 +48,14 @@ export default function MonthSwitcherModal({ isOpen, months, chosen, onClose, ch
 interface MonthCardProps {
 	month: string;
 	isChosen: boolean;
+	isNegative: boolean;
 	changeMonth: (month: string) => void;
 }
 
-export function MonthCard({ month, isChosen, changeMonth }: MonthCardProps) {
+export function MonthCard({ month, isChosen, isNegative, changeMonth }: MonthCardProps) {
 	return (
 		<>
-			<button className={styles["card"]} onClick={() => changeMonth(month)} disabled={isChosen}>
+			<button className={`${styles["card"]} ${styles[isNegative ? "red" : "green"]}`} onClick={() => changeMonth(month)} disabled={isChosen}>
 				<p>{month}</p>
 			</button>
 		</>
