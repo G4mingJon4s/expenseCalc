@@ -30,7 +30,7 @@ export default function ExpenseGraph() {
 					fontSize: 22,
 					tooltip: {
 						container: {
-							background: "#555"
+							background: "#404040"
 						}
 					},
 					legends: {
