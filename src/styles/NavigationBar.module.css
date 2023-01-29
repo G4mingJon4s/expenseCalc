@@ -1,71 +1,82 @@
-.navbar {
+.container {
 	display: flex;
+	background-color: #404040;
+	width: 100%;
+	height: 100%;
+	flex-direction: row-reverse;
 	justify-content: space-between;
-	align-items: center;
-	padding: 1rem;
-	background-color: #505050;
 }
 
-.navbar-links {
+.links {
 	display: flex;
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
 }
 
-.navbar-link-item {
-	margin-left: 20px;
+.link {
+	height: 100%;
+	text-decoration: none;
+	position: relative;
+	padding: 1rem;
+	display: block;
+	background-color: #202020;
+}
+
+.link:hover {
+	background-color: #101010;
+}
+
+.link::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 5px;
+	bottom: 0;
+	left: 0;
+	background-color: #000;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.link:hover::before {
+	transform: scaleX(1);
+}
+
+.month-text {
+	display: inline-block;
+	padding-left: 0.5rem;
+}
+
+.change-month {
+	color: #ffffff;
+	text-decoration: none;
+	align-items: center;
+	display: flex;
+}
+
+.month-container {
+	background-color: #202020;
+	padding: 1rem;
 	position: relative;
 }
 
-.navbar-month-button {
-	color: #ffffff;
-	text-decoration: none;
-	padding: 10px;
-	display: block;
+.month-container:hover {
+	background-color: #101010;
 }
 
-.navbar-month-button:hover {
-	background-color: rgb(74, 74, 74);
-	border-radius: 0.5rem;
-}
-
-.navbar-month-button:hover::before {
+.month-container::before {
 	content: "";
 	position: absolute;
-	background-color: #fff;
-	border: 1px solid #ddd;
-	z-index: -1;
-}
-
-.navbar-link {
-	color: rgb(255, 255, 255);
-	text-decoration: none;
-	padding: 10px;
 	display: block;
+	width: 100%;
+	height: 5px;
+	bottom: 0;
+	left: 0;
+	background-color: #000;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
 }
 
-.navbar-link:hover {
-	background-color: rgb(74, 74, 74);
-	border-radius: 0.5rem;
-}
-
-.navbar-link:hover::before {
-	content: "";
-	position: absolute;
-	background-color: #fff;
-	border: 1px solid #ddd;
-	z-index: -1;
-}
-
-.navbar-center {
-	flex: 1;
-	text-align: center;
-}
-
-.navbar-center-text {
-	background-color: rgb(16, 16, 16);
-	border-radius: 0.5rem;
-	display: inline-block;
-	padding: 10px;
+.month-container:hover::before {
+	transform: scaleX(1);
 }

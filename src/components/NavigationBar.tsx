@@ -1,25 +1,37 @@
 import React from "react";
 import styles from "@/styles/NavigationBar.module.css";
+import { HiCalendar } from "react-icons/hi";
 
 interface Props {
-	title: string;
 	currentMonth: string;
 	toggleMonthModal: () => void;
 }
 
-export default function NavigationBar({ title, currentMonth, toggleMonthModal }: Props) {
+export default function NavigationBar({ currentMonth, toggleMonthModal }: Props) {
 	return (
-		<nav className={styles["navbar"]}>
-			<h1>{title}</h1>
-			<div className={styles["navbar-center"]}>
-				<span className={styles["navbar-center-text"]}>{currentMonth}</span>
-			</div>
-			<ul className={styles["navbar-links"]}>
-				<li className={styles["navbar-link-item"]}><a href="" className={styles["navbar-link"]}>Overview</a></li>
-				<li className={styles["navbar-link-item"]}><a href="#expenses" className={styles["navbar-link"]}>Expenses</a></li>
-				<li className={styles["navbar-link-item"]}><a href="#subscriptions" className={styles["navbar-link"]}>Subscriptions</a></li>
-				<li className={styles["navbar-link-item"]}><button className={styles["navbar-month-button"]} onClick={toggleMonthModal}>Change Month</button></li>
+		<nav className={styles["container"]}>
+			<Month currentMonth={currentMonth} toggleMonthModal={toggleMonthModal}/>
+			<ul className={styles["links"]}>
+				<li className={styles["item"]}><a href="" className={styles["link"]}>Overview</a></li>
+				<li className={styles["item"]}><a href="#expenses" className={styles["link"]}>Expenses</a></li>
+				<li className={styles["item"]}><a href="#subscriptions" className={styles["link"]}>Subscriptions</a></li>
 			</ul>
 		</nav>
+	);
+}
+
+interface MonthProps {
+	currentMonth: string;
+	toggleMonthModal: () => void;
+}
+
+export function Month({ currentMonth, toggleMonthModal }: MonthProps) {
+	return (
+		<div className={styles["month-container"]}>
+			<button className={styles["change-month"]} onClick={toggleMonthModal}>
+				<HiCalendar size={24}/>
+				<span className={styles["month-text"]}>{currentMonth}</span>
+			</button>
+		</div>
 	);
 }

@@ -60,7 +60,7 @@ export default function Home({ months }: Props) {
 			<MonthSwitcherModal isOpen={isModalOpen} months={months} chosen={chosenMonth} onClose={closeModal} changeMonth={changeMonth}/>
 			<div className={styles["container"]}>
 				<div className={styles["navbar"]}>
-					<NavigationBar title={title} currentMonth={chosenMonth} toggleMonthModal={toggleModal}/>
+					<NavigationBar currentMonth={chosenMonth} toggleMonthModal={toggleModal}/>
 				</div>
 				<div className={styles["description"]}>
 					<Description data={testData}/>
@@ -79,7 +79,7 @@ export default function Home({ months }: Props) {
 export function getServerSideProps() {
 	return {
 		props: {
-			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "December 2023"]
 		}
 	};
 }
