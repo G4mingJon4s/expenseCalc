@@ -1,0 +1,36 @@
+.graph-wrapper {
+	width: 800px;
+	height: 400px;
+	background-color: #303030;
+	font-family: Oxygen, monospace;
+}
+
+@media (min-height: 1010px) {
+	.graph-wrapper {
+		height: 600px;
+	}
+}
+
+@media (min-height: 1205px) {
+	.graph-wrapper {
+		height: 800px;
+	}
+}
+
+@media (min-width: 1650px) {
+	.graph-wrapper {
+		width: 1200px;
+	}
+}
+
+@media (min-width: 1800px) {
+	.graph-wrapper {
+		width: 1300px;
+	}
+}
+
+@media (min-width: 2100px) {
+	.graph-wrapper {
+		width: 1500px;
+	}
+}

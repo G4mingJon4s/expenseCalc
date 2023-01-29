@@ -1,0 +1,77 @@
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal {
+	background-color: #303030;
+	color: #fff;
+	padding: 2rem;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 0.5rem;
+	border: 2px solid #555;
+}
+
+.overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 9999;
+}
+
+.grid-container {
+	margin-top: 1.5rem;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 1rem;
+}
+
+.grid-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card {
+	background-color: #555;
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+.card:hover {
+	background-color: rgb(74, 74, 74);
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.card:hover::before {
+	content: "";
+	position: absolute;
+	border: 1px solid #ddd;
+	z-index: -1;
+}
+
+.card:disabled {
+	background-color: #1e1e1e;
+	border: 1px solid #555;
+}
+
+.close-modal {
+	margin-top: 1rem;
+	padding: 0.5rem;
+}
+
+.close-modal:hover {
+	background-color: rgb(74, 74, 74);
+	border-radius: 0.5rem;
+}
+
+.close-modal:hover::before {
+	content: "";
+	position: absolute;
+	border: 1px solid #ddd;
+	z-index: -1;
+}

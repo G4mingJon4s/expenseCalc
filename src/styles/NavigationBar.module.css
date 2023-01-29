@@ -1,0 +1,71 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	background-color: #505050;
+}
+
+.navbar-links {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-link-item {
+	margin-left: 20px;
+	position: relative;
+}
+
+.navbar-month-button {
+	color: #ffffff;
+	text-decoration: none;
+	padding: 10px;
+	display: block;
+}
+
+.navbar-month-button:hover {
+	background-color: rgb(74, 74, 74);
+	border-radius: 0.5rem;
+}
+
+.navbar-month-button:hover::before {
+	content: "";
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	z-index: -1;
+}
+
+.navbar-link {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	padding: 10px;
+	display: block;
+}
+
+.navbar-link:hover {
+	background-color: rgb(74, 74, 74);
+	border-radius: 0.5rem;
+}
+
+.navbar-link:hover::before {
+	content: "";
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	z-index: -1;
+}
+
+.navbar-center {
+	flex: 1;
+	text-align: center;
+}
+
+.navbar-center-text {
+	background-color: rgb(16, 16, 16);
+	border-radius: 0.5rem;
+	display: inline-block;
+	padding: 10px;
+}
