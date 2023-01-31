@@ -27,7 +27,7 @@ export default function ExpenseGraph() {
 				]}
 				theme={{
 					textColor: "#ffffff",
-					fontSize: 22,
+					fontSize: 20,
 					tooltip: {
 						container: {
 							background: "#404040"
@@ -35,19 +35,24 @@ export default function ExpenseGraph() {
 					},
 					legends: {
 						text: {
-							fontSize: 22
+							fontSize: 20
 						},
 						title: {
 							text: {
-								fontSize: 22
+								fontSize: 20
 							}
 						}
 					},
 					axis: {
 						legend: {
 							text: {
-								fontSize: 22
+								fontSize: 20
 							}
+						}
+					},
+					grid: {
+						line: {
+							stroke: "#202020"
 						}
 					}
 				}}
