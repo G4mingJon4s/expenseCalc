@@ -40,7 +40,7 @@ export default function Home({ months, expenses }: Props) {
 					<ExpenseGraph />
 				</div>
 				<div className={styles["details"]}>
-					<Details expenses={923} income={2340}/>
+					<Details expenses={expenses.reduce((acc, cur) => acc + cur.total, 0)} income={2340}/>
 				</div>
 			</div>
 		</>
