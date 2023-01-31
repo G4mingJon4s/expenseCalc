@@ -44,8 +44,8 @@ export default function Home({ months, expenses }: Props) {
 				<NavigationBar currentMonth={chosenMonth} monthIsNegative={(months.find(o => o.name === chosenMonth)?.remaining ?? 0) < 0} toggleMonthModal={toggleModal}/>
 				<div className={styles["grid"]}>
 					{expenses.map((obj, ind) =>
-						<button className={styles["card-button"]} onClick={onCardClick(ind)}>
-							<Card key={`${ind}-desc-${obj.name}`} iconName={obj.iconName} name={obj.name} price={obj.total}/>
+						<button key={`${ind}-desc-${obj.name}`} className={styles["card-button"]} onClick={onCardClick(ind)}>
+							<Card iconName={obj.iconName} name={obj.name} price={obj.total}/>
 						</button>
 					)}
 				</div>
