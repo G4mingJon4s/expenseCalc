@@ -21,7 +21,7 @@ interface Props {
 
 Modal.setAppElement("#__next");
 
-export default function MonthSwitcherModal({ isOpen, months, chosen, onClose, changeMonth }: Props) {
+export default function MonthModal({ isOpen, months, chosen, onClose, changeMonth }: Props) {
 
 	return <Modal
 		isOpen={isOpen}
