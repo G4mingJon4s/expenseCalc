@@ -1,0 +1,20 @@
+.modal {
+	background-color: #202020;
+	color: #fff;
+	padding: 2rem;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 0.25rem;
+	box-shadow: 0.5rem 0.5rem 1rem lightgreen;
+}
+
+.overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 9999;
+}
+
+.container {
+	margin: 1rem;
+}
