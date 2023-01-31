@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
+import { ComponentType, useMemo } from "react";
 import { IconBaseProps, IconType } from "react-icons";
 
 interface Props {
@@ -8,6 +8,6 @@ interface Props {
 }
 
 export default function DynamicIcon({ iconName, props }: Props) {
-	const iconFunction = useMemo(() => dynamic(() => import("react-icons/hi").then(m => m[iconName as never])), [iconName]) as IconType;
-	return iconFunction(props);
+	const IconFunction = useMemo(() => dynamic(() => import("react-icons/hi").then(m => m[iconName as never])), [iconName]);
+	return <IconFunction {...props} />;
 }
